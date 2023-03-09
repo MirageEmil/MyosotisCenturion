@@ -1119,7 +1119,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 485504209655299505, guid: 4d26ee890ea04a749bc79c4961f82bb9, type: 3}
+
+    - target: {fileID: 5802192671758702817, guid: 3d26fdebf5f174741a8a01383117fb4f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123967551070416776, guid: 3d26fdebf5f174741a8a01383117fb4f, type: 3}
+      propertyPath: m_Name
+      value: KickHitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123967551070416778, guid: 3d26fdebf5f174741a8a01383117fb4f, type: 3}
+
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
