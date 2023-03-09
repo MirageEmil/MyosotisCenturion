@@ -10,6 +10,7 @@ public class FollowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // follow a gameObject. you can also have it follow at a specific distance away if disired
         gameObject.transform.position = thingToFollow.transform.position + offset;
     }
 }

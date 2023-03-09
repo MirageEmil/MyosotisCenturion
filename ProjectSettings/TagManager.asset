@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Kick
+  - UnlockShooting
   layers:
   - Default
   - TransparentFX
