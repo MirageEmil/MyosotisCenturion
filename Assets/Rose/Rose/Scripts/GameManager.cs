@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     public Button optionsButton;
 
+         //Stuff Danny Added
+    public float currentHealth;
+    public HealthBar healthbar;
+
     //General
     public bool isGameActive;
     public GameObject titleScreen;
@@ -36,8 +40,8 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore(0);
 
-
-
+            //Stuff Danny Added
+        healthbar = GameObject.Find("healthBar").GetComponent<HealthBar>();
     }
 
 
@@ -75,6 +79,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         //Stuff Danny Added
+         healthbar.health = currentHealth;
+
         if (Input.GetButtonDown("Start") && !isGameActive)
         {
             StartGame(1);
