@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c3b2b3f380992e49bc3f7abbcd9945b
+guid: 19a9b6fb804a018438bd5bcd307712bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,55 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoboDoggo Walk_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 576
-        width: 720
-        height: 576
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d134d93128493b4f98f7efaacd0fafe
-      internalID: 1405339674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoboDoggo Walk_1
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 576
-        width: 720
-        height: 576
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 897b24cd1c972654bb68b2f6f443a8a0
-      internalID: -1922616631
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoboDoggo Walk_2
+      name: Le-Uhm Centry Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 720
-        height: 576
+        width: 576
+        height: 900
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1a7171a6157b5043ba4d7350a99fcb0
-      internalID: -1714209298
+      spriteID: 13cb22158ed654347b9cbf15c491e1c5
+      internalID: -1295368030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoboDoggo Walk_3
+      name: Le-Uhm Centry Idle_1
       rect:
         serializedVersion: 2
-        x: 720
+        x: 576
         y: 0
-        width: 720
-        height: 576
+        width: 576
+        height: 900
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9bef5b0689fddc4a8cb96ec334b801f
-      internalID: -1583108628
+      spriteID: 86d903970f7fb0f4bb00d5509ea8ee9d
+      internalID: -1198111506
       vertices: []
       indices: 
       edges: []
@@ -222,10 +180,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RoboDoggo Walk_1: -1922616631
-      RoboDoggo Walk_0: 1405339674
-      RoboDoggo Walk_2: -1714209298
-      RoboDoggo Walk_3: -1583108628
+      Le-Uhm Centry Idle_1: -1198111506
+      Le-Uhm Centry Idle_0: -1295368030
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
