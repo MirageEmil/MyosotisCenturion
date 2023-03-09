@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Floats
+    public float enemyMeleeDamage = 25f;
+
         //how long the kick hitbox is out
     public float kickTime;
         //how long after the kick hitbox is out should we wait until we can kick again
@@ -48,12 +50,16 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bullet;
     public GameObject placeToSpawnBullets;
+
+    //Scripts
+    public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
         attackHitBox.enabled = false;
         attackSprite.enabled = false;
         playerRb = GetComponent<Rigidbody2D>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             //this is for changing where to place the kick hitbox for when the player turns left or right
         kickFollowPlayerScript = GameObject.FindGameObjectWithTag("Kick").GetComponent<FollowScript>();
@@ -112,6 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(bullet, placeToSpawnBullets.transform.position, placeToSpawnBullets.transform.rotation);
             canShoot = false;
+            StartCoroutine(Shooting());
         }
     }
 
@@ -141,6 +148,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("UnlockShooting"))
         {
             shootingUnlocked = true;
+        }
+
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            gm.currentHealth -= enemyMeleeDamage;
+
         }
     }
 }
