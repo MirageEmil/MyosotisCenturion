@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kickTime: 0.25
   kickCoolDown: 0.5
-  shootCooldown: 0
+  shootCooldown: 0.5
   moveSpeed: 5
   jumpForce: 10
   jumpKey: 32

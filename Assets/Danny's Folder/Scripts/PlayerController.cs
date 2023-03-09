@@ -108,10 +108,12 @@ public class PlayerController : MonoBehaviour
             kickFollowPlayerScript.thingToFollow = leftAttackPosition;
         }
 
+        //Ranged attacking code
         if (Input.GetKeyDown(rangedAttackKey) && canShoot && shootingUnlocked)
         {
             Instantiate(bullet, placeToSpawnBullets.transform.position, placeToSpawnBullets.transform.rotation);
             canShoot = false;
+            StartCoroutine(Shooting());
         }
     }
 
