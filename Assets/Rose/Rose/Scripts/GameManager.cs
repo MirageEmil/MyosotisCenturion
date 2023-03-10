@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        SceneManager.LoadScene("TitleScreen");
 
     }
     //Starts the Game
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+
+        SceneManager.LoadScene("Title Screen");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

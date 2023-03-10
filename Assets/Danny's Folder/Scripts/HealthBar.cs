@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
     // this script finds the health bar image and adjusts the image depending on the health float
     private const float maxHealth = 100f;
     public float health = maxHealth;
-    private Image healthBar;
+   [SerializeField] private Image healthBar;
     // Start is called before the first frame update
     void Start()
     {
