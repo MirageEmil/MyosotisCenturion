@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Jamison's Stuff/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Rose/Rose/Scenes/RosesSceneThatBorkErrything.unity
+    guid: c189cb88d11011d4b94f4b50c5722199
+  - enabled: 1
+    path: Assets/Rose/Rose/Scenes/TitleScreen.unity
+    guid: 321183a459a7804428d35862c1977986
+  - enabled: 1
+    path: Assets/Rose/Rose/Scenes/EndScreen.unity
+    guid: 0536a327008c1c44ca8c0bf7c468da0b
   m_configObjects: {}

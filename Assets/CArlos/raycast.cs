@@ -18,15 +18,21 @@ public class raycast : MonoBehaviour
     void Update()
     {
         RaycastHit2D playerRay = Physics2D.Raycast(playerDetector.position, Vector2.right, 1f);
-        if (playerRay.collider.gameObject.CompareTag("Player"))
+
+        if (playerRay.collider!=null)
         {
-            Debug.Log("i am touching: " + playerRay.collider.gameObject.name);
-        }
-        transform.Translate(Vector2.right * Time.deltaTime * speed);
-        RaycastHit2D groundRay = Physics2D.Raycast(groundDetector.position, Vector2.down, 1f);
-        if (groundRay.collider == null)
-        {
-            transform.Rotate(0f, 180f, 0f);
+
+            if (playerRay.collider.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("i am touching: " + playerRay.collider.gameObject.name);
+            }
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
+            RaycastHit2D groundRay = Physics2D.Raycast(groundDetector.position, Vector2.down, 1f);
+            if (groundRay.collider == null)
+            {
+                transform.Rotate(0f, 180f, 0f);
+            }
+
         }
     }
 }
