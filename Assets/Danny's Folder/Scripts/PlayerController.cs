@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             //this is for changing where to place the kick hitbox for when the player turns left or right
+            /*kickFollowPlayerScript may be causing issues as there is no script that I can find(R)*/
         kickFollowPlayerScript = GameObject.FindGameObjectWithTag("Kick").GetComponent<FollowScript>();
     }
 
