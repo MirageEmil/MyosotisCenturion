@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
     public Button startButton;
-    public Button optionsButton;
+    //public Button optionsButton;
 
          //Stuff Danny Added
     public float currentHealth;
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("TitleScreen");
 
     }
     //Starts the Game
@@ -37,11 +36,13 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = true;
         titleScreen.gameObject.SetActive(false);
+        SceneManager.LoadScene("RosesSceneThatBorkErrything");
         score = 0;
         UpdateScore(0);
 
             //Stuff Danny Added
         healthbar = GameObject.Find("healthBar").GetComponent<HealthBar>();
+
     }
 
 
@@ -75,7 +76,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
 
 
@@ -87,11 +91,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         //Stuff Danny Added
-         healthbar.health = currentHealth;
-
-        if (Input.GetButtonDown("Start") && !isGameActive)
+         //Stuff Danny Added\
+         if(isGameActive == true)
         {
+            if (healthbar != null)
+            {
+                healthbar.health = currentHealth;
+            }
+        }
+
+         /*
+        if (Input.GetKey("Start") && !isGameActive)
+        {
+
+            //this is rong
             StartGame(1);
         }
 
@@ -103,6 +116,13 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+
+         */
     }
 
+
+    public void DoThisWhenTheBUttonisClicked()
+    {
+        Debug.Log("Hi!");
+    }
 }
