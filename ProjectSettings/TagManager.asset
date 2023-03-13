@@ -8,6 +8,8 @@ TagManager:
   - Kick
   - UnlockShooting
   - Enemy
+  - PlayerBullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

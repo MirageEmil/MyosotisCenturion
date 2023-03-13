@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Floats
     public float enemyMeleeDamage = 25f;
-
+    public float enemyRangeDamage = 15f;
         //how long the kick hitbox is out
     public float kickTime;
         //how long after the kick hitbox is out should we wait until we can kick again
@@ -155,6 +155,14 @@ public class PlayerController : MonoBehaviour
         {
             gm.currentHealth -= enemyMeleeDamage;
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            gm.currentHealth -= enemyRangeDamage;
         }
     }
 }
