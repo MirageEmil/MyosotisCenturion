@@ -30,7 +30,9 @@ public class raycast : MonoBehaviour
             Instantiate(EnemyProjectile, spotToLaunchProjectile.transform.position, spotToLaunchProjectile.transform.rotation);
             canShoot = false;
             StartCoroutine(laserCoolDown());
+
         }
+
 
         RaycastHit2D groundDetection = Physics2D.Raycast(groundDetector.position, Vector2.down, 2f);
         if (!isRotated)
@@ -50,6 +52,7 @@ public class raycast : MonoBehaviour
                 isRotated = false;
                 transform.Rotate(0f, 180f, 0f);
             }
+
         }
 
         RaycastHit2D PlayerDetection = Physics2D.Raycast(playerDetector.position, Vector2.left, 3f);
@@ -63,6 +66,7 @@ public class raycast : MonoBehaviour
 
 
 
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -72,7 +76,9 @@ public class raycast : MonoBehaviour
             Instantiate(EnemyProjectile, spotToLaunchProjectile.transform.position, spotToLaunchProjectile.transform.rotation);
             canShoot = false;
             StartCoroutine(laserCoolDown());
+
         }
+
     }
 
     IEnumerator laserCoolDown()

@@ -173,11 +173,14 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
+
             Destroy(collision.gameObject);
+
             gm.currentHealth -= enemyRangeDamage;
         }
     }
