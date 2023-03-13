@@ -64,9 +64,15 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene("Title Screen");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
+
+    public void QuitGame()
+    {
+        
+
+    }
 
 
 
