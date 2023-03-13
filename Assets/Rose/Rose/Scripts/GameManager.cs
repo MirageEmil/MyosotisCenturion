@@ -46,12 +46,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     public void GameOver()
     {
         isGameActive = false;
-        gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-
+        //  gameOverText.gameObject.SetActive(true);
+        // restartButton.gameObject.SetActive(true);
+        SceneManager.LoadScene("EndScreen");
     }
 
 
@@ -64,16 +65,10 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
 
-        SceneManager.LoadScene("Title Screen");
+        SceneManager.LoadScene("TitleScreen");
 
     }
 
-
-    public void QuitGame()
-    {
-        
-
-    }
 
 
     public void Quit()
@@ -98,6 +93,11 @@ public class GameManager : MonoBehaviour
             {
                 healthbar.health = currentHealth;
             }
+        }
+
+         if(currentHealth <= 0f)
+        {
+            GameOver();
         }
 
          /*

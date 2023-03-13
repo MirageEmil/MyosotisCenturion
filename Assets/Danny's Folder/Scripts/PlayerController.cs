@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Floats
     public float enemyMeleeDamage = 25f;
-
+    public float enemyRangeDamage = 15f;
         //how long the kick hitbox is out
     public float kickTime;
         //how long after the kick hitbox is out should we wait until we can kick again
@@ -27,8 +27,9 @@ public class PlayerController : MonoBehaviour
     public KeyCode rangedAttackKey;
 
     //Bools
-    private bool canJump = true;
-    private bool canAttack = true;
+    private bool isJumping = false;
+    private bool isAttacking = false;
+    private bool isMoving = false;
         //This bool can be used for the animator. this bool also allows our player to knock enemies left and right depending on which way they are facing
     private bool isFacingLeft = false;
 
@@ -53,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
     //Scripts
     public GameManager gm;
+
+    //animator
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
         attackSprite.enabled = false;
         playerRb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        anim = GetComponent<Animator>();
 
             //this is for changing where to place the kick hitbox for when the player turns left or right
             /*kickFollowPlayerScript may be causing issues as there is no script that I can find(R)*/
@@ -74,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
         if (horizontalInput != 0f)
         {
+            isMoving = true;
+            anim.SetBool("isMoving", isMoving);   
             playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
 
             //I do it like this so that the player can knock back enemies the same direction they are facing
@@ -88,21 +95,28 @@ public class PlayerController : MonoBehaviour
                 isFacingLeft = true;
             }
         }
+        else
+        {
+            isMoving = false;
+            anim.SetBool("isMoving", isMoving);
+        }
 
         //jumping code. it sets the players velocity to zero before adding force so that you can't use the velocity from your previous jump to rocket yourself up a wall
-        if (Input.GetKeyDown(jumpKey) && canJump)
+        if (Input.GetKeyDown(jumpKey) && !isJumping)
         {
             playerRb.velocity = Vector2.zero;
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            canJump = false;
+            isJumping = true;
+            anim.SetBool("isJumping", isJumping);
         }
 
         //Melee attacking code
-        if (Input.GetKeyDown(meleeAttackKey) && canAttack)
+        if (Input.GetKeyDown(meleeAttackKey) && !isAttacking)
         {
             attackHitBox.enabled = true;
             attackSprite.enabled = true;
-            canAttack = false;
+            isAttacking = true;
+            anim.SetBool("isAttacking", isAttacking);
             StartCoroutine(Kicking());
         }
 
@@ -129,7 +143,8 @@ public class PlayerController : MonoBehaviour
         attackHitBox.enabled = false;
         attackSprite.enabled = false;
         yield return new WaitForSeconds(kickCoolDown);
-        canAttack = true;
+        isAttacking = false;
+        anim.SetBool("isAttacking", isAttacking);
     }
 
     IEnumerator Shooting()
@@ -143,7 +158,8 @@ public class PlayerController : MonoBehaviour
         //player can jump again when they touch the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
-            canJump = true;
+            isJumping = false;
+            anim.SetBool("isJumping", isJumping);
         }
 
         if (collision.gameObject.CompareTag("UnlockShooting"))
@@ -155,6 +171,14 @@ public class PlayerController : MonoBehaviour
         {
             gm.currentHealth -= enemyMeleeDamage;
 
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(collision.gameObject);
+            gm.currentHealth -= enemyRangeDamage;
         }
     }
 }
