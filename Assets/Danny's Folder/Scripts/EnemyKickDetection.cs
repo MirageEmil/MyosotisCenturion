@@ -39,7 +39,9 @@ public class EnemyKickDetection : MonoBehaviour
             collision.enabled = false;
             EnemyHealth -= 25f;
             Debug.Log("Enemy: Ouch!");
+
         }
+
 
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
