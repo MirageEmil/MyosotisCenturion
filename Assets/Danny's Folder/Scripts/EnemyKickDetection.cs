@@ -23,8 +23,8 @@ public class EnemyKickDetection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //depending on which side the player is on. it will knock the enemy back in the opposite direction
-         if (collision.gameObject.CompareTag("Kick"))
-         {
+        if (collision.gameObject.CompareTag("Kick"))
+        {
             if (collision.gameObject.transform.position.x > gameObject.transform.position.x)
             {
                 enemyRb.AddForce(Vector2.left * backwardKnockBack, ForceMode2D.Impulse);
@@ -39,7 +39,9 @@ public class EnemyKickDetection : MonoBehaviour
             collision.enabled = false;
             EnemyHealth -= 25f;
             Debug.Log("Enemy: Ouch!");
-         }
+
+        }
+
 
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
@@ -55,6 +57,6 @@ public class EnemyKickDetection : MonoBehaviour
         {
             enemyRb.velocity = Vector2.zero;
         }
-        
+
     }
 }
